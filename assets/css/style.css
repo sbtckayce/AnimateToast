@@ -1,0 +1,171 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+:root{
+    --white--color:#fff;
+    --black--color :#666;
+    --background--color:#f2f2f2;
+    --green--color:#52b683;
+    --blue--color:#409ec4;
+}
+.dark-bg{
+    --white--color:#000;
+    --black--color :#fff;
+    --background--color:#666;
+    
+    --blue--color:#52b683;
+}
+.container{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background--color);
+    position: relative;
+}
+.toast{
+    position: absolute;
+    content: '';
+    padding: 20px 30px;
+    background-color: var(--white--color);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    top: 45px;
+    right: 150px;
+    border-left: 5px solid var(--blue--color);
+    transition: all 0.5s linear;
+    transform: translateY(-150px);
+    overflow: hidden;
+}
+.toast.active{
+    display: block;
+    transform: translateY(0);
+}
+.toast.remove{
+    transition: all 0.5s linear;
+    transform: translateY(-150px);
+}
+.toast-content{
+    display: flex;
+    align-items: center;
+}
+.toast-content__text{
+    display: flex;
+    /* align-items: center; */
+    flex-direction: column;
+    margin: 0 20px;
+}
+.check-icon{
+    padding: 5px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    color: var(--white--color);
+    background-color: var(--blue--color);
+    
+}
+.text-message{
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--black--color);
+}
+.text-message-1{
+    font-weight: 600;
+  
+}
+.close-icon{
+    position: absolute;
+    content: '';
+    top: 0px;
+    padding: 15px;
+    right: 5px;
+    font-size: 20px;
+    opacity: 0.7;
+    cursor: pointer;
+    color: var(--black--color);
+}
+.close-icon:hover{
+    opacity: 1;
+}
+.button{
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+  
+}
+.btn-show{
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 20px;
+    background-color: var(--blue--color);
+    padding: 10px 15px;
+    font-weight: 500;
+    color: var(--white--color);
+    margin-right: 50px;
+    cursor: pointer;
+}
+.btn-icon{
+    position: relative;
+    font-size: 25px;
+    cursor: pointer;
+}
+.moon-icon{
+    position: absolute;
+    content: '';
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: var(--blue--color);
+   
+    
+}
+.sun-icon{
+    position: absolute;
+    content: '';
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: none;
+}
+.btn-icon.active .moon-icon,
+.btn-icon .sun-icon{
+   display: none;
+}
+.btn-icon .moon-icon,
+.btn-icon.active .sun-icon{
+   display: block;
+}
+.border-bottom{
+    position: absolute;
+    content: '';
+   width: 100%;
+   height: 6px;
+   background-color: var(--white--color);
+   left: 0;
+   bottom: 0;
+}
+.border-bottom::before{
+    position: absolute;
+    content: '';
+   width: 0;
+   height: 6px;
+   background-color: var(--blue--color);
+   left: 0;
+   bottom: 0;
+    
+}
+
+.border-bottom.active::before{
+   animation: rtl 5s linear;
+}
+@keyframes rtl{
+    100%{
+        width: 100%;
+    }
+    0%{
+        width: 0;
+    }
+}
